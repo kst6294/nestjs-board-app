@@ -1,0 +1,17 @@
+{
+  "terminal.integrated.fontFamily": "MesloLGS NF",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Night Owl",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": false,
+  },
+  "eslint.validate": ["javascript", "typescript"],
+  "editor.tabSize": 2,
+  "window.zoomLevel": 2,
+  "workbench.settings.useSplitJSON": true,
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true
+}
