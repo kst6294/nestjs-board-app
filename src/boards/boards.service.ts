@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { BoardRepository } from './board.repository';
 import { Board } from './board.entity';
+import { CreateBoardDto } from './dto/create-board.dto';
 
 @Injectable()
 export class BoardsService {
@@ -12,6 +13,11 @@ export class BoardsService {
   // getAllBoards(): Board[] {
   //   return this.boards;
   // }
+
+  createBoard(createBoardDto: CreateBoardDto): Promise<Board> {
+    return this.boardRepository.createBoard(createBoardDto);
+  }
+
   // createBoard(createBoardDto: CreateBoardDto) {
   //   const { title, description } = createBoardDto;
   //   const board: Board = {
@@ -25,7 +31,7 @@ export class BoardsService {
   // }
 
   async getBoardById(id: number): Promise<Board> {
-    const found = await this.boardRepository.findOneBy({ id });
+    const found = await this.boardRepository.findOne(id);
 
     if (!found) {
       throw new NotFoundException(`Can't find Board with id ${id}`);
