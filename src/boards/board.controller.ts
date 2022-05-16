@@ -12,6 +12,9 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { Account } from 'src/auth/account.entity';
+import { GetAccount } from 'src/auth/get-account.decorator';
+import { getCustomRepository } from 'typeorm';
 import { BoardStatus } from './board-status.enum';
 import { Board } from './board.entity';
 import { BoardsService } from './board.service';
@@ -30,8 +33,11 @@ export class BoardsController {
 
   @Post()
   @UsePipes(ValidationPipe)
-  createBoard(@Body() createBoardDto: CreateBoardDto): Promise<Board> {
-    return this.boardsService.createBoard(createBoardDto);
+  createBoard(
+    @Body() createBoardDto: CreateBoardDto,
+    @GetAccount() account: Account,
+  ): Promise<Board> {
+    return this.boardsService.createBoard(createBoardDto, account);
   }
 
   @Get('/:id')
