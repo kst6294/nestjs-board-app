@@ -12,7 +12,7 @@ import {
 } from '@nestjs/common';
 import { BoardStatus } from './board-status.enum';
 import { Board } from './board.entity';
-import { BoardsService } from './boards.service';
+import { BoardsService } from './board.service';
 import { CreateBoardDto } from './dto/create-board.dto';
 import { BoardStatusValidationPipe } from './pipes/board-status-validation.pipe';
 
