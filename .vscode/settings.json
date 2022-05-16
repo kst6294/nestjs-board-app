@@ -7,11 +7,14 @@
   },
   "eslint.validate": ["javascript", "typescript"],
   "editor.tabSize": 2,
-  "window.zoomLevel": 2,
+  "window.zoomLevel": 1,
   "workbench.settings.useSplitJSON": true,
   "[typescript]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "editor.autoClosingBrackets": "languageDefined",
+  "typescript.autoClosingTags": false,
+  "html.autoClosingTags": false
 }
