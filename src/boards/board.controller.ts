@@ -14,7 +14,6 @@ import {
 import { AuthGuard } from '@nestjs/passport';
 import { Account } from 'src/auth/account.entity';
 import { GetAccount } from 'src/auth/get-account.decorator';
-import { getCustomRepository } from 'typeorm';
 import { BoardStatus } from './board-status.enum';
 import { Board } from './board.entity';
 import { BoardsService } from './board.service';
@@ -27,8 +26,8 @@ export class BoardsController {
   constructor(private boardsService: BoardsService) {}
 
   @Get()
-  getAllBoards(): Promise<Board[]> {
-    return this.boardsService.getAllBoards();
+  getAllBoards(@GetAccount() account: Account): Promise<Board[]> {
+    return this.boardsService.getAllBoards(account);
   }
 
   @Post()
